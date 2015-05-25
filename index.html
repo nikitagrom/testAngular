@@ -3,6 +3,11 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        #removeItem{
+            margin-top: 10px;
+        }
+    </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body ng-controller="purchaseController">
@@ -26,7 +31,7 @@
                 <button class="btn btn-default" ng-click="addItem(text, price)">Добавить</button>
             </div>
             <div class ="col-md-offset-2 col-md-8">
-                <button class="btn btn-default" ng-click="removeItems()">Удалить купленное</button>
+                <button class="btn btn-default" id="removeItem" ng-click="removeItems()">Удалить купленное</button>
             </div>
         </div>
     </div>

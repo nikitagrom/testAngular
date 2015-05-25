@@ -1,0 +1,10 @@
+<ul>
+    <li ng-repeat="phone in model">
+        <b>Марка {{phone.name}}</b>
+        <ul ng-repeat="x in phone.phone">
+            <p>Модель: {{x.name}}</p>
+        <p>Цена: {{x.price}} $</p>
+
+        </ul>
+    </li>
+</ul>

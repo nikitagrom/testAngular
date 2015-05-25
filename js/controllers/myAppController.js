@@ -2,39 +2,66 @@
  * Created by ngromov on 25.05.15.
  */
 
-var myApp = angular.module('myApp',[]);
-var model  = [
-    {
-        name:"Nokia",
-        year: 2014,
-        price:200,
-        company:{
-            name:'Nokia',
-            country:"Finland"
-        }
+var myApp = angular.module('myApp',['ngSanitize']);
+var model  =  [{
+    name: 'Nokia',
+    phone:[{
+        name: "Nokia Lumia 530",
+        price: 150
     },{
-        name:"Philips",
-        year: 2012,
-        price:50,
-        company:{
-            name:'Philips',
-            country:"China"
-        }
+        name: "Nokia X2",
+        price: 200
+    }]
+},{
+    name: 'Samsung',
+    phone:[{
+        name: "Samsung Galaxy S5",
+        price: 500
     },{
-        name:"Samsung",
-        year: 2015,
-        price:650,
-        company:{
-            name:'Samsung',
-            country:"Korea"
-        }
-    }
-
-];
+        name: "Samsung Galaxy Alpha",
+        price: 400
+    }]
+}]
+var tablets = [{
+    name: 'Samsung Galaxy Tab S4',
+    year: 2014,
+    price: 300,
+    company: 'Samsung'
+},{
+    name: 'LG G PAD 8.3',
+    year: 2013,
+    price: 180,
+    company: 'LG'
+},{
+    name: 'IdeaTab A8',
+    year: 2014,
+    price: 220,
+    company: 'Lenovo'
+}];
 
 myApp.controller('phoneController',function($scope){
-    $scope.model = model
+    $scope.model = model;
+$scope.tablets = tablets;
+    $scope.data ={};
+    $scope.setFile = function(){
 
+        if($scope.data.mode=='Tablets'){
+
+            return 'tabletList.html';
+        }else if($scope.data.mode=='Phones'){
+            return 'phoneList.html';
+        }
+    };
+    $scope.modes = [{
+        value:'Tablets',
+        label:'Планшеты'
+    },{
+        value:'Phones',
+        label:'Телефоны'
+    }];
+
+
+$scope.htmlcode = "Directive <b>ng-bind-html</b>";
 
 });
 myApp.controller('myControl',function(){

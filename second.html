@@ -12,20 +12,41 @@
 <body>
 <div class="container" ng-app="myApp">
     <div ng-controller="phoneController">
-        <ul ng-class="$odd?'odd':'even'" class="" ng-repeat="phone in model">
+        <ul ng-class="$odd?'odd':'even'"ng-repeat="phone in model">
 
 
        <li>{{$index+1}} <p>Название: {{phone.name}}</p></li>
-        <p>Цена: {{phone.price}}</p>
-        <p>Производитель: {{phone.company.name}}</p>
+
+            <ul ng-repeat="x in phone.phone">
+                <li>
+                    {{x.name}}
+                    price {{x.price}}
+                </li>
             </ul>
-        </div>
+        </ul>
+<p ng-bind-html="htmlcode"></p>
+        <input type="text" ng-model="model[1].name">
+        <p ng-bind="model[1].name"></p>
+        <p>Количество элементов <span ng-bind="model.length"></span></p>
+        <input type="text" ng-model="model[0].name">
+        <p>Первый элемент <span ng-bind="model[0].name"></span></p>
+<div ng-repeat="button in modes">
+    <label>
+        <input type="radio" ng-model="data.mode" value="{{button.value}}" name="modes">
+        {{button.label}}
+    </label>
+    </div>
+
+        <div ng-include="setFile()"></div>
+
+
+
         <div ng-controller="myControl as myCtrl">
             <h3>{{myCtrl.message}}</h3>
         </div>
         <div ng-controller="secondController as abc">
             <div ng-repeat="x in abc.message">
-                <div>{{x+23}}</div>
+                <div>{{x}}</div>
             </div>
         </div>
         <div ng-controller="thirdController as third">
@@ -40,6 +61,7 @@
 </div>
 
 <script src="js/lib/angular.js"></script>
+<script src="js/lib/angular-sanitize.min.js"></script>
 <script src = js/controllers/myAppController.js></script>
 </body>
 </html>

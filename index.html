@@ -61,8 +61,10 @@
     purchaseApp.controller("purchaseController", function ($scope) {
         $scope.list = model;
         $scope.addItem = function (text, price) {
-            $scope.list.items.push({ purchase: text, price: price, done: false });
-        };
+            if(text && price) {
+                $scope.list.items.push({purchase: text, price: price, done: false});
+            }
+            };
         $scope.removeItems = function(){
             var tmp=[];
             for(var i = 0;i<$scope.list.items.length;i++) {

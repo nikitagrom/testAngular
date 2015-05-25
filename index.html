@@ -7,6 +7,9 @@
         #removeItem{
             margin-top: 10px;
         }
+        #removeAll{
+            margin-top: 10px;
+        }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
@@ -32,6 +35,9 @@
             </div>
             <div class ="col-md-offset-2 col-md-8">
                 <button class="btn btn-default" id="removeItem" ng-click="removeItems()">Удалить купленное</button>
+            </div>
+            <div class ="col-md-offset-2 col-md-8">
+                <button class = "btn btn-default" id="removeAll" ng-click="removeAll()">Удалить все</button>
             </div>
         </div>
     </div>

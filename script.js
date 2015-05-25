@@ -1,3 +1,4 @@
+
 var model = {
     items :[
         { purchase: "Хлеб", done: false, price: 15.9 },
@@ -23,6 +24,9 @@ purchaseApp.controller("purchaseController", function ($scope) {
             tmp.push($scope.list.items[i])
         }
         $scope.list.items = tmp;
+    };
+    $scope.removeAll = function(){
+      $scope.list.items = [];
     }
 
 

@@ -13,11 +13,14 @@ purchaseApp.controller("purchaseController", function ($scope) {
     $scope.list = model;
     $scope.addItem = function (text, price) {
         if(text && price) {
+            backUp = createBackup($scope.list.items,backUp);
             $scope.list.items.push({purchase: text, price: price, done: false});
+
         }
     };
     $scope.removeItems = function(){
         var tmp=[];
+
         for(var i = 0;i<$scope.list.items.length;i++) {
             if ($scope.list.items[i].done) {
                 continue;
@@ -30,8 +33,15 @@ purchaseApp.controller("purchaseController", function ($scope) {
       $scope.list.items = [];
     }
 $scope.restoreDefault = function(){
+    for(var i=0;i<backUp.items.length;i++){
+        backUp.items[i].done=false;
+    }
     $scope.list.items = backUp.items;
 }
 
 });
+function createBackup(from,to){
+    to =JSON.parse(JSON.stringify(from));
+    return to;
+}
 

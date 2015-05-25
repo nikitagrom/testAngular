@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="purchaseApp">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
     <style>
-        #removeItem{
-            margin-top: 10px;
-        }
-        #removeAll{
-            margin-top: 10px;
-        }
+      .btn{
+          margin-top: 10px;
+      }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<body ng-controller="purchaseController">
+<body>
+<div ng-app="purchaseApp" ng-controller="purchaseController">
 <div class="page-header">
     <h1> Список покупок </h1>
 </div>
@@ -34,10 +32,13 @@
                 <button class="btn btn-default" ng-click="addItem(text, price)">Добавить</button>
             </div>
             <div class ="col-md-offset-2 col-md-8">
-                <button class="btn btn-default" id="removeItem" ng-click="removeItems()">Удалить купленное</button>
+                <button class="btn btn-default"  ng-click="removeItems()">Удалить купленное</button>
             </div>
             <div class ="col-md-offset-2 col-md-8">
-                <button class = "btn btn-default" id="removeAll" ng-click="removeAll()">Удалить все</button>
+                <button class = "btn btn-default" ng-click="removeAll()">Удалить все</button>
+            </div>
+            <div class ="col-md-offset-2 col-md-8">
+                <button class = "btn btn-default" ng-click="restoreDefault()">Восстановить по умолчанию</button>
             </div>
         </div>
     </div>
@@ -57,8 +58,21 @@
         </tr>
         </tbody>
     </table>
+
 </div>
-<script src="angular.js"></script>
-<script src = "script.js"></script>
+</div>
+<div class="container">
+    <div ng-app="myApp" ng-controller="phoneController">
+        <p>Название: {{}}</p>
+        <p>Цена: {{phone.price}}</p>
+        <p>Производитель: {{phone.company.name}}</p>
+    </div>
+</div>
+
+
+
+<script src="js/lib/angular.js"></script>
+<script src = js/controllers/myAppController.js></script>
+<script src = "js/controllers/purchaseAppController.js"></script>
 </body>
 </html>

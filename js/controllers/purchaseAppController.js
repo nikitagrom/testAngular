@@ -7,6 +7,7 @@ var model = {
         { purchase: "Сыр", done: false, price:310 }
     ]
 };
+var backUp =JSON.parse(JSON.stringify(model));
 var purchaseApp = angular.module("purchaseApp", []);
 purchaseApp.controller("purchaseController", function ($scope) {
     $scope.list = model;
@@ -28,6 +29,9 @@ purchaseApp.controller("purchaseController", function ($scope) {
     $scope.removeAll = function(){
       $scope.list.items = [];
     }
-
+$scope.restoreDefault = function(){
+    $scope.list.items = backUp.items;
+}
 
 });
+

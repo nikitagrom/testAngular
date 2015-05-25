@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<style>
+    .odd{background-color: aqua}
+    .even{background-color: red}
+</style>
+</head>
+<body>
+<div class="container" ng-app="myApp">
+    <div ng-controller="phoneController">
+        <ul ng-class="$odd?'odd':'even'" class="" ng-repeat="phone in model">
+
+
+       <li>{{$index+1}} <p>Название: {{phone.name}}</p></li>
+        <p>Цена: {{phone.price}}</p>
+        <p>Производитель: {{phone.company.name}}</p>
+            </ul>
+        </div>
+        <div ng-controller="myControl as myCtrl">
+            <h3>{{myCtrl.message}}</h3>
+        </div>
+        <div ng-controller="secondController as abc">
+            <div ng-repeat="x in abc.message">
+                <div>{{x+23}}</div>
+            </div>
+        </div>
+        <div ng-controller="thirdController as third">
+            <div ng-repeat="y in third.message">
+                <div ng-repeat="z in y">
+                    <div>{{z}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/lib/angular.js"></script>
+<script src = js/controllers/myAppController.js></script>
+</body>
+</html>
